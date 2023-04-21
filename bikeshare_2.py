@@ -163,7 +163,7 @@ def user_stats(df):
     print('-'*40)    
 
 def display_data(df):
-    
+    """Gets user access to raw data."""
     x = 0
     while True:
         display_raw_data = input('\nPlease type "yes" if you would you like to see 5 rows of data?\n')
