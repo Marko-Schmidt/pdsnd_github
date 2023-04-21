@@ -1,4 +1,12 @@
 >**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
+### Table of content
+
+- [Project creation date](#Date-created)
+- [Project Title](#Project-Title)
+- [Project Description](#Description)
+- [Files used](#Files-used)
+- [Additional data information](#Additional-data-information)
+
 
 ### Date created
 April 14, 2023
@@ -29,7 +37,7 @@ Data:
 - new_york_city.csv
 - chicago.csv
 
-### Some data information
+### Additional data information
 
 - Because of the size, data files are not hosted on Github (If you are interested to run the program with the original data, just let me know and I can send you the data in another way)
 - Data are available for the months January to June
