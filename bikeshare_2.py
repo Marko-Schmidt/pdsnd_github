@@ -169,17 +169,21 @@ def user_stats(df):
     print('-'*40)    
 
 def display_data(df):
-    
-    x = 0
-    while True:
-        display_raw_data = input('\nPlease type "yes" if you would you like to see 5 rows of data?\n')
-        
+    """
+    Displays 5 rows of data at a time from a Pandas DataFrame.
+
+    Args:
+        df - Pandas DataFrame to display data from
+    """
+    for i in range(0, len(df), 5):
+        display_raw_data = input('\nPlease type "yes" if you would like to see 5 rows of data?\n')
+
         if display_raw_data.lower() != 'yes':
             break
-            
+
         else:
-            x = x + 5
-            print(df.iloc[x:x+5])
+            print(df.iloc[i:i+5])
+
 def main():
     while True:
         city, month, day = get_filters()
