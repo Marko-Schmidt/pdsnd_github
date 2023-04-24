@@ -13,29 +13,35 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid input
-    while True:
-        city = input("Which of the tree Cities do you want to explore (Chicago, New York or Washington): ").lower()
-        if city in ["chicago", "new york", "washington"]:
-            break
-        else:
-            print("Sorry but you requested a city out of scope. Please try again.")
-    # get user input for month (all, january, february, ... , june)
-    while True:
-        month = input("Which month do you want to explore (where are data available for January to June or type in all): ").lower()
-        if month in ["all", "january", "february", "march", "april", "may", "june"]:
-            break
-        else:
-            print("Sorry but you requested a month that doesn´t exist. Please try again.")
-    # get user input for day of week (all, monday, tuesday, ... sunday)
-    while True:
-        day = input("Which day of the week are you up to (type in all or specific day): ").lower()
-        if day in ["all", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]:
-            break
-        else:
-            print("Sorry but you requested a day that doesn´t exist. Please try again.")
+    
+    # Define valid inputs for city, month, and day
+    valid_inputs = {
+        'city': ['chicago', 'new york', 'washington'],
+        'month': ['all', 'january', 'february', 'march', 'april', 'may', 'june'],
+        'day': ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+    }
+    
+    # Define function to handle user input
+    def get_input(input_type):
+        while True:
+            try:
+                input_value = input(f"Which {input_type} do you want to explore ({', '.join(valid_inputs[input_type])}): ").lower()
+                if input_value in valid_inputs[input_type]:
+                    return input_value
+                else:
+                    print(f"Sorry but you requested a {input_type} that doesn't exist. Please try again.")
+            except KeyboardInterrupt:
+                print("\n\nYou have interrupted the program. Please try again.")
+                exit()
+    
+    # Get user input for city, month, and day
+    city = get_input('city')
+    month = get_input('month')
+    day = get_input('day')
+    
     print('-' * 40)
     return city, month, day
+    
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
